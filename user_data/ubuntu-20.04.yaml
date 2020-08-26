@@ -13,6 +13,7 @@ packages:
   - curl
   - gnupg-agent
   - software-properties-common
+  - wireguard
 
 # Install Docker + Docker Compose & Start Docker
 runcmd:
@@ -21,6 +22,7 @@ runcmd:
   #- curl -fsSL https://raw.githubusercontent.com/MatchbookLab/local-persist/master/scripts/install.sh | bash
   - chmod +x /usr/local/bin/docker-compose
   - ufw allow OpenSSH
+  - ufw allow 51820/udp
   - ufw --force enable
   - add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/ubuntu $(lsb_release -cs) stable"
   - apt-get update -y
